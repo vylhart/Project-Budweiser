@@ -12,7 +12,7 @@ from datetime import datetime
 model = tf.keras.models.load_model('./hdf5/model.h5')
 
 def take():
-    img = (np.array(screenshot()))[750:,1000:1400]
+    img = (np.array(screenshot()))[750:,1200:1500]
     img = cvtColor(img,COLOR_RGB2BGR)
     return img
 
@@ -34,6 +34,9 @@ try:
                 print('***over***')
                 started = False
                 break
+            elif keyboard.is_pressed('p'):
+                print('***Paused***')
+                started = False
             elif started:
                 sleep(0.05)
                 t1 = datetime.now()
@@ -44,6 +47,6 @@ try:
                     click(x=700,y=900)
                     t2 = datetime.now()
                     t = t2-t1
-                    print('Jumping....', t.seconds)
+                    print('Jumping....', t.microseconds)
 except KeyboardInterrupt:
     print('Keyboard Interrupt')

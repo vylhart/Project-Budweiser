@@ -127,4 +127,4 @@ model.fit(
     train_ds, epochs=epochs, callbacks=callbacks, validation_data=val_ds,
 )
 
-
+model.save('model.h5')
