@@ -9,7 +9,7 @@ from cv2 import cvtColor, COLOR_RGB2BGR
 import keyboard
 from time import sleep
 from datetime import datetime
-model = tf.keras.models.load_model('./savedModels/model')
+model = tf.keras.models.load_model('./hdf5/model.h5')
 
 def take():
     img = (np.array(screenshot()))[750:,1000:1400]
