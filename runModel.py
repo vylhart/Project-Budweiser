@@ -12,12 +12,12 @@ from datetime import datetime
 model = tf.keras.models.load_model('./hdf5/model.h5')
 
 def take():
-    img = (np.array(screenshot()))[750:,1200:1500]
+    img = (np.array(screenshot()))[820:1020,1200:1400]
     img = cvtColor(img,COLOR_RGB2BGR)
     return img
 
 def predict(model, img):
-    img = keras.preprocessing.image.smart_resize(img, (180, 180))
+    #img = keras.preprocessing.image.smart_resize(img, (200, 200))
     img_array = keras.preprocessing.image.img_to_array(img)
     img_array = tf.expand_dims(img_array, 0)
     predictions = model.predict(img_array)
